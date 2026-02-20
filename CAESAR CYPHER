@@ -1,0 +1,21 @@
+def caesar_cipher():
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    
+    print("--- Caesar Cipher Spy Tool ---")
+    message = input("Enter your message: ").lower()
+    shift = int(input("Enter the shift number (1-25): "))
+    
+    encrypted_message = ""
+
+    for char in message:
+        if char in alphabet:
+            position = alphabet.find(char)
+            new_position = (position + shift) % 26
+            encrypted_message += alphabet[new_position]
+        else:
+            encrypted_message += char
+
+    print(f"Your secret message is: {encrypted_message}")
+
+if __name__ == "__main__":
+    caesar_cipher()
