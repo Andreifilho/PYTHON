@@ -1,0 +1,25 @@
+import random
+
+def start_game():
+    words = ["coding", "logic", "algorithm", "syntax", "variable", "python"]
+    secret_word = random.choice(words)
+    
+    char_list = list(secret_word)
+    random.shuffle(char_list)
+    scrambled = "".join(char_list)
+    
+    print(f"Unscramble this word: {scrambled}")
+    
+    attempts = 0
+    while True:
+        guess = input("Your guess: ").lower().strip()
+        attempts += 1
+        
+        if guess == secret_word:
+            print(f"Correct! You guessed it right in {attempts} attempts!")
+            break
+        else:
+            print("TRY AGAIN")
+        
+if __name__ == "__main__":
+    start_game()
