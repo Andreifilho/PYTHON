@@ -1,0 +1,34 @@
+def shopping_list_app():
+    items = []
+    
+    while True:
+        print(f"\nYou have {len(items)} items on your list.")
+        action = input("Type 'add', 'view', 'remove', or 'exit': ").lower().strip()
+        
+        if action == "exit":
+            break
+            
+        elif action == "add":
+            new_item = input("What do you want to add? ").lower().strip()
+            if new_item not in items: 
+                items.append(new_item)
+                print(f"Added {new_item}.")
+            else: 
+                print("Already on the list")
+
+        elif action == "view":
+            items.sort()
+            print("\n--- YOUR SHOPPING LIST ---")
+            for i, food in enumerate(items, 1):
+                print(f"{i}. {food.capitalize()}")
+            
+        elif action == "remove":
+            target = input("What do you want to remove? ").lower().strip()
+            if target in items:
+                items.remove(target)
+                print(f"Removed {target}.")
+            else:
+                print("Item not found.")
+
+if __name__ == "__main__":
+    shopping_list_app()
